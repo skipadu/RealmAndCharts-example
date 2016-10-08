@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import RealmSwift
 
 class ViewController: UIViewController {
   @IBOutlet weak var barView: BarChartView!

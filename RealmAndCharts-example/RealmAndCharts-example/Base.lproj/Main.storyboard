@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,13 +22,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08m-GB-KDt" customClass="BarChartView" customModule="Charts">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fV9-Eu-nfe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0uB-XZ-oIQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vp8-Sm-6JM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1K0-Ap-ham"/>
+                                    <constraint firstAttribute="width" constant="46" id="8ex-QX-wm8"/>
+                                </constraints>
+                                <state key="normal" title="Add"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="08m-GB-KDt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6t4-iL-im8"/>
+                            <constraint firstItem="vp8-Sm-6JM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7i1-05-74s"/>
+                            <constraint firstItem="vp8-Sm-6JM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="KZe-q8-zdc"/>
+                            <constraint firstItem="08m-GB-KDt" firstAttribute="top" secondItem="vp8-Sm-6JM" secondAttribute="bottom" constant="8" id="Omf-Xn-zzC"/>
                             <constraint firstAttribute="trailing" secondItem="08m-GB-KDt" secondAttribute="trailing" id="Pll-2Z-l5f"/>
-                            <constraint firstItem="08m-GB-KDt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eS3-Rd-Uc9"/>
+                            <constraint firstItem="vp8-Sm-6JM" firstAttribute="leading" secondItem="fV9-Eu-nfe" secondAttribute="trailing" constant="8" id="prS-MD-7BB"/>
+                            <constraint firstItem="fV9-Eu-nfe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="pvM-wO-PzO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="08m-GB-KDt" secondAttribute="bottom" id="vTV-7t-cfa"/>
+                            <constraint firstItem="fV9-Eu-nfe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xW7-ZY-Yvo"/>
                         </constraints>
                     </view>
                     <connections>
@@ -36,6 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
