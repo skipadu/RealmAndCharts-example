@@ -17,8 +17,22 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08m-GB-KDt" customClass="BarChartView" customModule="Charts">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="08m-GB-KDt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6t4-iL-im8"/>
+                            <constraint firstAttribute="trailing" secondItem="08m-GB-KDt" secondAttribute="trailing" id="Pll-2Z-l5f"/>
+                            <constraint firstItem="08m-GB-KDt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eS3-Rd-Uc9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="08m-GB-KDt" secondAttribute="bottom" id="vTV-7t-cfa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barView" destination="08m-GB-KDt" id="HAB-0C-wYz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
