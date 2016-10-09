@@ -36,6 +36,9 @@
                                     <constraint firstAttribute="width" constant="46" id="8ex-QX-wm8"/>
                                 </constraints>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="btnAddTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vHj-0Y-Ziq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,6 +56,7 @@
                     </view>
                     <connections>
                         <outlet property="barView" destination="08m-GB-KDt" id="HAB-0C-wYz"/>
+                        <outlet property="tfValue" destination="fV9-Eu-nfe" id="0Vk-fB-Chb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
