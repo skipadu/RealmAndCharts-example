@@ -17,7 +17,7 @@ class VisitorCount: Object {
     do {
       let realm = try Realm()
       try realm.write {
-        realm.add(self, update: true)
+        realm.add(self)
       }
     } catch let error as NSError {
       fatalError(error.localizedDescription)
