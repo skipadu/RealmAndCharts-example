@@ -121,7 +121,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = skipadu;
 				TargetAttributes = {
 					53FF82111DA8DFB9009EE89E = {
