@@ -42,8 +42,12 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     /// flag indicating if the grid background should be drawn or not
     open var drawGridBackgroundEnabled = false
     
-    /// Sets drawing the borders rectangle to true. If this is enabled, there is no point drawing the axis-lines of x- and y-axis.
+    /// When enabled, the borders rectangle will be rendered.
+    /// If this is enabled, there is no point drawing the axis-lines of x- and y-axis.
     open var drawBordersEnabled = false
+    
+    /// When enabled, the values will be clipped to contentRect, otherwise they can bleed outside the content rect.
+    open var clipValuesToContentEnabled: Bool = false
 
     /// Sets the minimum offset (padding) around the chart, defaults to 10
     open var minOffset = CGFloat(10.0)
@@ -242,7 +246,19 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         _leftYAxisRenderer.renderAxisLabels(context: context)
         _rightYAxisRenderer.renderAxisLabels(context: context)
 
-        renderer!.drawValues(context: context)
+        if clipValuesToContentEnabled
+        {
+            context.saveGState()
+            context.clip(to: _viewPortHandler.contentRect)
+            
+            renderer!.drawValues(context: context)
+            
+            context.restoreGState()
+        }
+        else
+        {
+            renderer!.drawValues(context: context)
+        }
 
         _legendRenderer.renderLegend(context: context)
 
@@ -343,17 +359,9 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                     {
                     case .top:
                         offsetTop += min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent) + _legend.yOffset
-                        if xAxis.isEnabled && xAxis.isDrawLabelsEnabled
-                        {
-                            offsetTop += xAxis.labelRotatedHeight
-                        }
                         
                     case .bottom:
                         offsetBottom += min(_legend.neededHeight, _viewPortHandler.chartHeight * _legend.maxSizePercent) + _legend.yOffset
-                        if xAxis.isEnabled && xAxis.isDrawLabelsEnabled
-                        {
-                            offsetBottom += xAxis.labelRotatedHeight
-                        }
                         
                     default:
                         break
@@ -511,12 +519,12 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
             
             if h === nil || h!.isEqual(self.lastHighlighted)
             {
-                self.highlightValue(highlight: nil, callDelegate: true)
+                self.highlightValue(nil, callDelegate: true)
                 self.lastHighlighted = nil
             }
             else
             {
-                self.highlightValue(highlight: h, callDelegate: true)
+                self.highlightValue(h, callDelegate: true)
                 self.lastHighlighted = h
             }
         }
@@ -715,7 +723,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                     (h !== nil && lastHighlighted !== nil && !h!.isEqual(lastHighlighted)))
                 {
                     self.lastHighlighted = h
-                    self.highlightValue(highlight: h, callDelegate: true)
+                    self.highlightValue(h, callDelegate: true)
                 }
             }
         }
